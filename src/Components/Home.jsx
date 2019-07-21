@@ -45,7 +45,7 @@ class Home extends Component {
             </div>
             <input type="text" name="user" value={this.state.user} onChange={this.handleChange} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
               <div className="input-group-append">
-            <span className="input-group-text" id="basic-addon2"><a className="btn btn-primary" onClick={()=>this.getDataFromUser(this.state.user)} >BUSCAR</a></span>
+            <span className="input-group-text" id="basic-addon2"><a className="btn btn-primary" onClick={()=>this.getDataFromUser("ThePieous")} >BUSCAR</a></span>
           </div>
         </div>
           <div className="row">
@@ -54,6 +54,7 @@ class Home extends Component {
                   <Tarjeta
                     title={posteo.title}
                     subreddit={posteo.subreddit}
+                    link={posteo.full_link}
                   />
                 </div>
               ))}
