@@ -7,12 +7,20 @@ class Home extends Component {
     super()
     this.state = {
       posteos: [],
+      user: ''
     }
+    this.handleChange = this.handleChange.bind(this)
   }
 
  componentDidMount(){
-   this.getDataFromUser("kamiyan");
  }
+
+ handleChange(e){
+
+    this.setState({
+      [e.target.name]: e.target.value
+      });
+  }
 
  getDataFromUser = async(user) => {
    await axios.get('https://api.pushshift.io/reddit/search/submission/?author='+user)
@@ -31,6 +39,15 @@ class Home extends Component {
     return(
       <div className="container">
           <h1>Posteos</h1>
+            <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">u/</span>
+            </div>
+            <input type="text" name="user" value={this.state.user} onChange={this.handleChange} className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+              <div className="input-group-append">
+            <span className="input-group-text" id="basic-addon2"><a className="btn btn-primary" onClick={()=>this.getDataFromUser(this.state.user)} >BUSCAR</a></span>
+          </div>
+        </div>
           <div className="row">
               {this.state.posteos.map( posteo =>(
                 <div className="col-sm-4">
