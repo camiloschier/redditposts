@@ -1,5 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un proyecto de prueba para probar las api PushShift de Reddit para analisis de datos. 
+Busca posteos por usuario y los renderea. 
 
+TODO:
+-Mostrar thumbnails de fotos.
+-Filtrar por subreddit.
+-Implemetnar paginacion.
 ## Available Scripts
 
 In the project directory, you can run:
